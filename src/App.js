@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// things with a dot infront of it are what we created in our src folder
+import Welcome from './components/welcome/Welcome'
+import Clock from './components/clock/Clock'
+import Contact from './components/contact/Contact'
+import "./App.css"
+import Navigation from './components/navigation/Navigation';
+import { Route } from "react-router-dom";
+import Jeopardy from "./components/jeopardy/Jeopardy";
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* name is the props alex is the .name form the welcome.js */}
+      {/* <Welcome name="Alex" />
+      <Welcome name="Michael" />
+
+      <Clock />
+      <Contact /> */}
+
+
+      {/* define our routes */}
+      <Navigation/>
+      <Route exact path="/" render={(props) => <Welcome {...props} name="eric" />} />
+      <Route path="/clock" component={Clock} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/jeopardy" component={Jeopardy} />
+
     </div>
   );
 }
+
+
 
 export default App;
