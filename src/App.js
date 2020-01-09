@@ -8,6 +8,8 @@ import Navigation from './components/navigation/Navigation';
 import { Route } from "react-router-dom";
 import Jeopardy from "./components/jeopardy/Jeopardy";
 
+// import JeoBoard from "./components/jeopardy/JeopardyBoard";
+
 
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
       <Route path="/clock" component={Clock} />
       <Route path="/contact" component={Contact} />
       <Route path="/jeopardy" component={Jeopardy} />
+      {/* <Route path="/jeoboard" component={JeoBoard} /> */}
 
     </div>
   );

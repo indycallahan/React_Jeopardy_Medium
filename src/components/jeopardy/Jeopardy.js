@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import our service
 import JeopardyService from "./jeopardyService";
+import JeopardyDisplay from "../jeopardyDisplay/JeopardyDisplay";
 
 class Jeopardy extends Component {
   //set our initial state and set up our service as this.client on this component
@@ -41,11 +42,11 @@ class Jeopardy extends Component {
     if (this.state.data.answer === event.target.answer.value) {
       // let score = this.state.score;
       score = score + this.state.data.value;
-      
+
     }
     else {
       score = score - this.state.data.value;
-      
+
     }
     this.setState({ score });
     this.getNewQuestion()
@@ -76,73 +77,93 @@ class Jeopardy extends Component {
 
   //display the results on the screen called string-ify
   render() {
-    if (this.state.data.category) {
-      return (
-        <div>
-          <table className="jeopardyTable">
-            <tbody>
-              <tr>
-                <td>Category:</td>
-                <td>{this.state.data.category.title}</td>
-              </tr>
-              <tr>
-                <td>Question:</td>
-                <td>{this.state.data.question}</td>
-              </tr>
+return(
+  
+    <JeopardyDisplay 
 
-              <tr>
-                <td>Point Value:</td>
-                <td>{this.state.data.value}</td>
-              </tr>
+    data = {this.state.data}
+    score={this.state.score}
+    answer={this.state.formData.answer}
+    handleSubmit={this.handleSubmit}
+    handleChange={this.handleChange}
+    
+    // name={this.props.visitingTeam.name}
+    //                     logo={this.props.visitingTeam.logoSrc}
+    //                     stats={this.state.visitingTeamStats}
+    
+    />
 
-              <tr>
-                <td>Score:</td>
-                <td>{this.state.score}</td>
-              </tr>
-            </tbody>
+)
+    
+
+    // if (this.state.data.category) {
+    //   return (
+    //     <div>
+    //       <table className="jeopardyTable">
+    //         <tbody>
+    //           <tr>
+    //             <td>Category:</td>
+    //             <td>{this.state.data.category.title}</td>
+    //           </tr>
+    //           <tr>
+    //             <td>Question:</td>
+    //             <td>{this.state.data.question}</td>
+    //           </tr>
+
+    //           <tr>
+    //             <td>Point Value:</td>
+    //             <td>{this.state.data.value}</td>
+    //           </tr>
+
+    //           <tr>
+    //             <td>Score:</td>
+    //             <td>{this.state.score}</td>
+    //           </tr>
+    //         </tbody>
 
 
-          </table>
-          <br />
+    //       </table>
+    //       <br />
 
 
-          <form onSubmit={this.handleSubmit}>
-            <div className="formData">
-              <label>What is ...?</label>
-              <input onChange={this.handleChange}
-                type="text" name="answer"
-              // value={this.state.data.answer} 
-              />
-            </div>
+    //       <form onSubmit={this.handleSubmit}>
+    //         <div className="formData">
+    //           <label>What is ...?</label>
+    //           <input onChange={this.handleChange}
+    //             type="text" name="answer"
+    //           // value={this.state.data.answer} 
+    //           />
+    //         </div>
 
 
-            {/* as you type, you create a virtual DOM.  State constantly updates with each keystroke. */}
 
-            {/* you can add an email field or even a phone and then you have to add it above in formData */}
-            <button>Submit Answer</button> <br />
+    //         <button>Submit Answer</button> <br />
 
-            {/* {this.state.data.answer} */}
-            <br />
-            {/* {this.state.formData.lastName} */}
-          </form>
+    //         {/* {this.state.data.answer} */}
+    //         <br />
+    //         {/* {this.state.formData.lastName} */}
+    //       </form>
 
-         
 
-        </div>
 
-      )
+    //     </div>
 
-    }
-    else {
-      return (
-        <div></div>
-      )
-    }
+    //   )
+
+    // }
+    // else {
+    //   return (
+    //     <div></div>
+    //   )
+    // }
+
+
 
 
 
 
   }
+  // end render
 
 
 }

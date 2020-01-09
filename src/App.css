@@ -49,3 +49,12 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+#jeo-column {
+  background-color: blue;
+  height: 50px;
+  width: 70px;
+  border: solid, 2px, black;
+  color: whitesmoke;
+
+}
